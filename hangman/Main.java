@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 class Main {
 
@@ -130,32 +131,38 @@ class Hangman {
     }
 
     public void guess(String str){
-        if (!usedChar.contains(str)) {
+        Pattern pattern = Pattern.compile("[A-z]");
+
+        if (!pattern.matcher(str).matches())
+            System.out.println("This character is incorrect");
+
+        else if (!usedChar.contains(str)){
             int pointer = 0;
             usedChar.add(str);
-            StringBuilder correctedWord = new StringBuilder(hangmanWord);
-            if (correctWord.getWord().toLowerCase().contains(str)) {
+            StringBuilder hiddenWord = new StringBuilder(hangmanWord);
+            String answer = correctWord.getWord();
+
+            if (answer.toLowerCase().contains(str)) {
                 int correctCount = 0;
                 pointer += 1;
                 char guessChar = str.charAt(0);
-                for (int i = 0; i < correctWord.getWord().length(); i++) {
-                    if (correctWord.getWord().charAt(i) == ' ') pointer += 1;
-                    if (Character.toLowerCase(correctWord.getWord().charAt(i)) == Character.toLowerCase(guessChar)) {
+                for (int i = 0; i < answer.length(); i++) {
+                    if (answer.charAt(i) == ' ' || !pattern.matcher(Character.toString(answer.charAt(i))).matches()) pointer += 1;
+                    if (Character.toLowerCase(answer.charAt(i)) == Character.toLowerCase(guessChar)) {
                         correctCount++;
-                        correctedWord.setCharAt((((i + 1) * 2) - 1) - pointer, correctWord.getWord().charAt(i));
+                        hiddenWord.setCharAt((((i + 1) * 2) - 1) - pointer, answer.charAt(i));
                     }
                 }
-
-                hangmanWord = correctedWord.toString();
-                score += correctCount*(100.0/(correctWord.getWord().length() - pointer + 1));
+                hangmanWord = hiddenWord.toString();
+                score += correctCount*(100.0/(answer.length() - pointer + 1));
                 System.out.println(status() + ", guess correct: " + str);
             } else {
                 guessCount--;
                 System.out.println(status() + ", guess wrong: " + str);
             }
-        }else{
+        }else
             System.out.println("This character is used please try again");
-        }
+
     }
 
     public String getTopic() {
