@@ -2,12 +2,12 @@ import java.io.*;
 import java.util.*;
 
 /**
- * XMLtoJSON class to rewrite Xml file to jason
+ * XMLToJSON class to rewrite Xml file to jason
  * This application use for Internship Exam 2019
  * @author Manusporn Fukkham
  * @since 30/1/2019
  */
-public class XMLtoJSON {
+public class XMLToJSON {
 
     /**
      * Main method of rewrite xml to json file.
