@@ -1,6 +1,8 @@
 # Internship-Program-Developer-Exam-2019
 Programming exam for Internship 2019
 
+**หมายเหตุ** ส่งอีกรอบเพราะ ที่ส่งไปก่อนหน้านี้ยังทำไม่เสร็จ
+
 ## Source Code
 - [hanman](hangman)
 - [XML to JSON](weather) (weather)
