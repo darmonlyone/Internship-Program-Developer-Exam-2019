@@ -6,6 +6,7 @@ XML to Json for Internship develop exam part 2.
 - Read all `xml` line and change to `json` form by changing of string. 
 - *json* file did't format well as well as its could.
 - Class will ask for `xml` path file and rewrite to `json` file on same directory.
+- This class can detect comment but cannot detect xml error form.
 
 ## Requirement
 - Java 8
