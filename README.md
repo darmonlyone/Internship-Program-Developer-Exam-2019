@@ -2,7 +2,7 @@
 Programming exam for Internship 2019
 
 ## Source Code
-- [hanman](hangman)
+- [hangman](hangman)
 - [XML to JSON](weather) (weather)
 
 ## Creator
